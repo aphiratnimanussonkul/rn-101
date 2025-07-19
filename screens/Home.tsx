@@ -122,37 +122,6 @@ export default function HomeScreen() {
     </View>
   );
 
-  const renderHeader = () => (
-    <View style={styles.header}>
-      <Text style={styles.headerTitle}>Discover Beauty</Text>
-      <Text style={styles.headerSubtitle}>Find your perfect makeup match</Text>
-
-      <SearchBar
-        value={searchQuery}
-        onChangeText={setSearchQuery}
-        placeholder="Search makeup products..."
-      />
-
-      <View style={styles.filterRow}>
-        <TouchableOpacity
-          style={styles.filterButton}
-          onPress={() => setShowFilters(true)}
-        >
-          <Filter size={20} color="#E8B4B8" />
-          <Text style={styles.filterButtonText}>Filters</Text>
-          {(filters.category ||
-            filters.brand ||
-            filters.minPrice ||
-            filters.maxPrice) && <View style={styles.filterIndicator} />}
-        </TouchableOpacity>
-
-        <Text style={styles.resultsCount}>
-          {filteredProducts.length} products found
-        </Text>
-      </View>
-    </View>
-  );
-
   return (
     <View style={styles.container}>
       <FlatList
@@ -160,7 +129,38 @@ export default function HomeScreen() {
         renderItem={renderProduct}
         keyExtractor={item => item.id.toString()}
         numColumns={2}
-        ListHeaderComponent={renderHeader}
+        ListHeaderComponent={
+          <View style={styles.header}>
+            <Text style={styles.headerTitle}>Discover Beauty</Text>
+            <Text style={styles.headerSubtitle}>
+              Find your perfect makeup match
+            </Text>
+
+            <SearchBar
+              value={searchQuery}
+              onChangeText={setSearchQuery}
+              placeholder="Search makeup products..."
+            />
+
+            <View style={styles.filterRow}>
+              <TouchableOpacity
+                style={styles.filterButton}
+                onPress={() => setShowFilters(true)}
+              >
+                <Filter size={20} color="#E8B4B8" />
+                <Text style={styles.filterButtonText}>Filters</Text>
+                {(filters.category ||
+                  filters.brand ||
+                  filters.minPrice ||
+                  filters.maxPrice) && <View style={styles.filterIndicator} />}
+              </TouchableOpacity>
+
+              <Text style={styles.resultsCount}>
+                {filteredProducts.length} products found
+              </Text>
+            </View>
+          </View>
+        }
         contentContainerStyle={styles.listContent}
         columnWrapperStyle={styles.row}
         refreshControl={
