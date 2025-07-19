@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { Filter } from 'lucide-react-native';
 import React, { useEffect, useState } from 'react';
 import {
@@ -16,8 +16,11 @@ import { fetchProducts } from '../services/makeup';
 import { Product, SearchFilters } from '../types/product';
 import SearchBar from '../components/SearchBar';
 
-export default function HomeScreen() {
-  const navigation = useNavigation();
+export default function HomeScreen({
+  navigation,
+}: {
+  navigation: NavigationProp<any>;
+}) {
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -108,7 +111,7 @@ export default function HomeScreen() {
   };
 
   const handleProductPress = (product: Product) => {
-    // navigation.navigate('ProductDetail', { product });
+    navigation.navigate('ProductDetail', { product });
   };
 
   const renderProduct = ({ item }: { item: Product }) => (
