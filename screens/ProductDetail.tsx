@@ -58,7 +58,7 @@ export default function ProductDetailScreen() {
         {/* Product Image */}
         <View style={styles.imageContainer}>
           <Image
-            source={{ uri: product.image_link || product.api_featured_image }}
+            source={{ uri: product.api_featured_image }}
             style={styles.productImage}
             resizeMode="cover"
           />
