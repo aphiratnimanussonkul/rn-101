@@ -67,3 +67,12 @@ cd ios
 pod install
 cd ..
 ```
+
+2. Install Lucide React Native
+```
+npm install lucide-react-native react-native-svg 
+npm dedupe
+cd ios
+pod install
+cd ..
+```

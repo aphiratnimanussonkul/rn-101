@@ -19,7 +19,7 @@ function App() {
         <Stack.Screen
           name="home"
           component={Home}
-          options={{ title: 'Welcome' }}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>
