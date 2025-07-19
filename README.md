@@ -58,3 +58,12 @@ npm run ios
 ```
 npm run android
 ```
+
+## Let Get's Started
+1. Install Naviation
+```
+npm install @react-navigation/native @react-navigation/native-stack react-native-screens react-native-safe-area-context
+cd ios
+pod install
+cd ..
+```
