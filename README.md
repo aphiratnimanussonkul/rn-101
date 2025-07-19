@@ -17,23 +17,38 @@
 - Open Android Studio
 - More Actions > Visual Device Manager
 - Start Simulator
+
+### 5. Ruby version 3
+```
+brew install ruby
+```
+After that follow export path from instruction
+
 ---
 
 ## Initial Project
 Run command
 ```
-npx create-expo-app@latest
+npx @react-native-community/cli init <YOUR_APP_NAME> --version 0.79.0 --template @react-native-community/template
 ```
-Enter you app name
+If you never install **Cocoapod** the terminal will ask to install 
 ```
-What is your app named? › <YOUR_APP_NAME>
+? Do you want to install CocoaPods now? Needed for running iOS project › (y/N) -> Y
+```
+If installing **Cocoapod** does not complete you can try again with this command
+```
+brew install cocoapods
 ```
 Move code base
 ```
 mv ./<YOUR_APP_NAME>/* .
 ```
 
-## How to Run 
+## How to Run
+### First Run
+```
+cd ios && pod install
+``` 
 ### iOS Simulator
 ``` 
 npm run ios
